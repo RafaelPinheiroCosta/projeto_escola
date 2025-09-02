@@ -20,7 +20,7 @@ public class AlunoController {
         return alunoService.listarAlunos();
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public Aluno buscarAluno(@PathVariable String id){
         return alunoService.buscarAlunoPorId(id);
     }
@@ -30,12 +30,11 @@ public class AlunoController {
         return alunoService.salvarAluno(aluno);
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     public Aluno editarAluno(@PathVariable String id ,@RequestBody Aluno aluno){
         return alunoService.atualizarAluno(id,aluno);
     }
-
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public void deletarAluno(@PathVariable String id){
         alunoService.deletarAluno(id);
     }

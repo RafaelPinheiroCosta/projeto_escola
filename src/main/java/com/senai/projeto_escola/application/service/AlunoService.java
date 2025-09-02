@@ -11,7 +11,6 @@ import java.util.List;
 public class AlunoService {
     @Autowired
     AlunoRepository alunoRepository;
-
     public List<Aluno> listarAlunos() {
         return alunoRepository.findAll();
     }
@@ -30,7 +29,6 @@ public class AlunoService {
         alunoAtualizado.setId(id);
         return alunoRepository.save(alunoAtualizado);
     }
-
     public void deletarAluno(String id) {
         alunoRepository.deleteById(id);
     }
