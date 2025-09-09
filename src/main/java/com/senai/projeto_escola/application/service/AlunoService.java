@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class AlunoService {
     @Autowired
     AlunoRepository alunoRepository;
@@ -35,8 +36,8 @@ public class AlunoService {
     }
 
     public AlunoDTO salvarAluno(AlunoDTO dto) {
-        Optional<Curso> cursoOpt = cursoRepository.findById(dto.idCurso());
-        Aluno entidade = dto.toEntity(cursoOpt.get());
+        Curso curso = cursoRepository.findById(dto.idCurso()).orElse(null);
+        Aluno entidade = dto.toEntity(curso);
         Aluno salvo = alunoRepository.save(entidade);
         return AlunoDTO.fromEntity(salvo);
     }
