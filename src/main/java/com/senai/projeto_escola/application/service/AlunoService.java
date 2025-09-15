@@ -40,7 +40,7 @@ public class AlunoService {
         Aluno entidade = dto.toEntity(curso);
         Aluno salvo = alunoRepository.save(entidade);
         return AlunoDTO.fromEntity(salvo);
-    }
+          }
 
     public AlunoDTO atualizarAluno(String id, AlunoDTO dto) {
         Optional<Aluno> alunoExistenteOpt = alunoRepository.findById(id);
